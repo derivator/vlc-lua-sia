@@ -803,7 +803,11 @@ end
 
 function log(msg, ...)
     if sia_settings.log_enable then
-        vlc.msg.info("[sia] " .. tostring(msg), unpack(arg))
+        if arg == nil then
+            vlc.msg.info("[sia] " .. tostring(msg))
+        else
+            vlc.msg.info("[sia] " .. tostring(msg), unpack(arg))
+        end
     end
 end
 
